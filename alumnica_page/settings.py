@@ -25,7 +25,10 @@ SECRET_KEY = 'u8)4o4c-w#7ar^k@sjezc&%tjoemogx89k)b-79r465ud20f+5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['127.0.0.1']
+#ALLOWED_HOSTS = ['landing.alumnica.org']
+
 
 
 # Application definition
@@ -56,6 +59,10 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
+#CORS_ORIGIN_WHITELIST = (
+#    'https://www.alumnica.org',
+#)
+
 
 ROOT_URLCONF = 'alumnica_page.urls'
 
@@ -126,7 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+SECRET_KEY_CAPTCHA= os.environ.get('SECRET_KEY_CAPTCHA')
 USERNAME_EMAIL= os.environ.get('USERNAME_EMAIL')
 FROM_ADDR = os.environ.get('FROM_ADDR')
 EMAIL_PASS = os.environ.get('EMAIL_PASS')
